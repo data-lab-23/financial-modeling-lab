@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DownloadCard } from "@/components/DownloadCard";
 import { downloads } from "@/data/lab";
+import { practicalDownloads } from "@/data/practical-case";
 import { createPageMetadata } from "@/lib/page-metadata";
 
 export const metadata: Metadata = createPageMetadata("/downloads", {
@@ -17,7 +18,7 @@ export default function DownloadsPage() {
         仕訳演習、前提条件入力、PL、BS/CF統合、完成3表モデル、DCF、品質チェックリストをExcel形式で配布します。すべて教育目的のサンプルファイルです。
       </p>
       <div className="mt-10 grid gap-5">
-        {downloads.map((item) => <DownloadCard key={item.file} item={item} />)}
+        {[...practicalDownloads, ...downloads].map((item) => <DownloadCard key={item.file} item={item} />)}
       </div>
       <div className="callout warning mt-10">
         <strong>利用条件</strong><br />ファイルは学習目的で利用できます。実案件の判断、会計・税務・投資判断を代替するものではありません。機密情報を入力した状態で第三者へ共有しないでください。

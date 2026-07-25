@@ -21,7 +21,12 @@
     "test:comps-workbook": "tsx scripts/test-comps-selection-workbook.ts",
     "generate:learning-workbooks": "tsx scripts/create-learning-workbooks.ts",
     "test:learning-workbooks": "tsx scripts/test-learning-workbooks.ts",
-    "validate:url-migration": "tsx scripts/validate-site-url-migration.ts"
+    "validate:url-migration": "tsx scripts/validate-site-url-migration.ts",
+    "validate:practical-case": "tsx scripts/validate-practical-case.ts",
+    "validate:practical-panel": "tsx scripts/validate-practical-case-panel.tsx",
+    "validate:practical-pages": "tsx scripts/validate-practical-core-pages.tsx",
+    "generate:practical-workbooks": "tsx scripts/create-practical-case-workbooks.ts",
+    "test:practical-workbooks": "tsx scripts/test-practical-case-workbooks.ts"
   },
   "dependencies": {
     "next": "16.2.10",

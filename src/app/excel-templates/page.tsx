@@ -13,5 +13,5 @@ export const metadata: Metadata = {
 };
 
 export default function ExcelTemplatesPage() {
-  return <TopicHub topic="excel" eyebrow="Excel教材" title="Excel教材で、手を動かして理解する" lead="読むだけで終わらせず、前提の入力、三表の連動、チェックの流れをExcelで確かめます。基礎演習から完成モデルまで、難易度に沿って選べます。" learningSteps={["基礎演習で仕訳と前提条件の流れをつかむ", "PL・BS・CFを連動させる練習をする", "完成モデルとチェックリストで仕上げる"]} />;
+  return <TopicHub topic="excel" eyebrow="Excel教材" title="Excel教材で、手を動かして理解する" lead="読むだけで終わらせず、前提の入力、三表の連動、チェックの流れをExcelで確かめます。共通案件の受領資料から完成モデルまで、実務の順序で選べます。" learningSteps={["受領資料の差異と不足を確認する", "PL・BS・CFを実務の順序で連動させる", "完成モデルと指摘事項でレビューする"]} />;
 }

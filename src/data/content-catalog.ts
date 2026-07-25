@@ -186,6 +186,18 @@ export const contentCatalog: ContentEntry[] = [
     type: "download", topic: "excel", level: "実務", readingTime: "Excel", keywords: ["品質", "レビュー", "チェックリスト", "Excel"], featured: false,
   },
   {
+    href: "/downloads/08_東都精密工業_受領資料パック.xlsx",
+    title: "東都精密工業 受領資料パック",
+    summary: "月次試算表、販売実績、固定資産、借入金、運転資本など、モデル作成前に確認する受領資料一式です。",
+    type: "download", topic: "excel", level: "実務", readingTime: "Excel", keywords: ["受領資料", "試算表", "固定資産", "借入金", "Excel"], featured: true,
+  },
+  {
+    href: "/downloads/09_東都精密工業_完成三表モデル.xlsx",
+    title: "東都精密工業 完成三表モデル",
+    summary: "共通案件の5年予測、Base / Upside / Downside、補助計算、PL・BS・CF、品質確認を収録しています。",
+    type: "download", topic: "excel", level: "実務", readingTime: "Excel", keywords: ["三表モデル", "PL", "BS", "CF", "Excel"], featured: true,
+  },
+  {
     href: "/downloads/類似会社選定ワークシート.xlsx",
     title: "類似会社選定 Excelワークブック",
     summary: "対象会社の事業特性、比較候補会社一覧、比較会社選定表、検討記録、チェックを収録しています。",
