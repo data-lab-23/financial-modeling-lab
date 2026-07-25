@@ -3,6 +3,11 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { WorkingCapitalDownload } from "../src/components/working-capital/WorkingCapitalDownload";
 import { WorkingCapitalFormulaTable } from "../src/components/working-capital/WorkingCapitalFormulaTable";
 import { WorkingCapitalNavigation } from "../src/components/working-capital/WorkingCapitalNavigation";
+import WorkingCapitalHub from "../src/app/working-capital-model/page";
+import ReceivablesPage from "../src/app/working-capital/receivables/page";
+import InventoryPage from "../src/app/working-capital/inventory/page";
+import PayablesPage from "../src/app/working-capital/payables/page";
+import CashConversionCyclePage from "../src/app/working-capital/cash-conversion-cycle/page";
 import {
   calculateWorkingCapital,
   workingCapitalCase,
@@ -44,5 +49,27 @@ assert.match(formulaMarkup, /売上高÷365日×回収日数/);
 assert.match(navigationMarkup, /運転資本モデルの作り方/);
 assert.match(downloadMarkup, /working-capital-model\.xlsx/);
 assert.match(downloadMarkup, /download/);
+
+const hubMarkup = renderToStaticMarkup(<WorkingCapitalHub />);
+const receivablesMarkup = renderToStaticMarkup(<ReceivablesPage />);
+const inventoryMarkup = renderToStaticMarkup(<InventoryPage />);
+const payablesMarkup = renderToStaticMarkup(<PayablesPage />);
+const cccMarkup = renderToStaticMarkup(<CashConversionCyclePage />);
+assert.match(hubMarkup, /運転資本モデルの作り方/);
+assert.match(hubMarkup, /東都パーツ株式会社/);
+assert.match(hubMarkup, /2026\/3期/);
+assert.match(hubMarkup, /2027\/3期/);
+assert.match(receivablesMarkup, /売掛金＝売上高÷365日×回収日数/);
+assert.match(inventoryMarkup, /棚卸資産＝売上原価÷365日×在庫回転日数/);
+assert.match(payablesMarkup, /買掛金＝売上原価÷365日×支払日数/);
+assert.match(cccMarkup, /CCC＝回収日数＋在庫回転日数－支払日数/);
+assert.match(hubMarkup, /working-capital-model\.xlsx/);
+
+for (const markup of [hubMarkup, receivablesMarkup, inventoryMarkup, payablesMarkup, cccMarkup]) {
+  assert.match(markup, /実務上の使用場面/);
+  assert.match(markup, /Excelでの実装/);
+  assert.match(markup, /よくある誤り/);
+  assert.match(markup, /レビュー時の確認項目/);
+}
 
 console.log("Working capital series validation passed");
