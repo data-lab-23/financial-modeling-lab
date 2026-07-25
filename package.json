@@ -25,6 +25,7 @@
     "validate:practical-case": "tsx scripts/validate-practical-case.ts",
     "validate:practical-panel": "tsx scripts/validate-practical-case-panel.tsx",
     "validate:practical-pages": "tsx scripts/validate-practical-core-pages.tsx",
+    "validate:search": "tsx scripts/validate-search-visibility.tsx",
     "generate:practical-workbooks": "tsx scripts/create-practical-case-workbooks.ts",
     "test:practical-workbooks": "tsx scripts/test-practical-case-workbooks.ts"
   },

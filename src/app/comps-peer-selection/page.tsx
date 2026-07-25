@@ -18,9 +18,10 @@ import { getEditorialRecord } from "@/data/editorial";
 import { createPageMetadata } from "@/lib/page-metadata";
 
 export const metadata: Metadata = createPageMetadata("/comps-peer-selection", {
-  title: "類似会社の選定方法｜比較対象を選ぶ実務手順",
+  title: "類似会社の選定方法｜候補抽出・除外理由・EV／EBITDA比較",
   description:
     "類似会社候補の探し方、事業モデル・規模・成長率・利益率による比較、主要比較会社と除外企業の整理、Excel選定表まで解説します。",
+  openGraph: { type: "article" },
 });
 
 const toc = [
@@ -107,7 +108,7 @@ export default function CompsPeerSelectionPage() {
           </nav>
           <div className="eyebrow">類似会社比較／比較会社選定</div>
           <h1 className="mt-3 max-w-5xl text-4xl font-bold tracking-[-.04em] text-[#102235] md:text-5xl">
-            類似会社の選定――比較対象を選ぶ実務手順
+            類似会社の選定方法――候補抽出・除外理由・EV／EBITDA比較
           </h1>
           <p className="mt-5 max-w-3xl text-lg text-[#607080]">
             対象企業の事業を言語化し、比較候補会社一覧から主要比較会社を選び、除外理由まで記録するための実務フレームワークを学びます。
@@ -142,6 +143,11 @@ export default function CompsPeerSelectionPage() {
           <h2 id="why-peer-selection">1. 類似会社比較の目的</h2>
           <p>
             類似会社比較法は、上場市場で観察できる企業価値と財務指標を参照し、対象会社のValuationレンジを検討する方法です。ただし、同じ業種分類に属するだけでは比較可能とはいえません。収益源、製品構成、顧客、地域、規模、成長性、利益率、資本集約度が、評価目的に照らして十分に近いかを確認します。
+          </p>
+          <p>
+            比較会社の選定後は、各社のEV／EBITDAを対象会社へ適用し、Enterprise ValueからEquity Valueへ調整します。将来キャッシュ・フローを直接評価する場合は
+            <Link href="/valuation/dcf" className="font-bold text-[#147d73] underline underline-offset-4">DCF法の計算方法とExcelでの作り方</Link>
+            と結果を照合します。
           </p>
           <p>
             実務では、候補を多く集めることよりも、なぜその候補を主要比較会社として扱うのか、なぜ近い会社を除外したのかを第三者が追える状態にすることが重要です。選定はマルチプルを計算する前の、評価の前提づくりです。

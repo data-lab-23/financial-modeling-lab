@@ -22,7 +22,8 @@ const siteOrigin = "https://data-lab-23.github.io";
 const pagesBasePath = "/financial-modeling-lab";
 const deploymentBase = `${siteOrigin}${pagesBasePath}`;
 const outRoot = path.resolve("out");
-const expectedLastModified = new Date("2026-07-22T00:00:00+09:00").getTime();
+const defaultLastModified = new Date("2026-07-22T00:00:00+09:00").getTime();
+const searchVisibilityLastModified = new Date("2026-07-25T00:00:00+09:00").getTime();
 
 const routes: Array<{
   route: string;
@@ -248,7 +249,10 @@ for (const item of routes) {
   assert.equal(sitemapEntry.changeFrequency, "monthly", `${item.route} sitemap frequency must be monthly`);
   assert.equal(sitemapEntry.priority, item.priority, `${item.route} sitemap priority is incorrect`);
   assert.ok(sitemapEntry.lastModified instanceof Date, `${item.route} sitemap lastModified must be a Date`);
-  assert.equal(sitemapEntry.lastModified.getTime(), expectedLastModified, `${item.route} sitemap lastModified must be 2026-07-22`);
+  const expectedLastModified = ["/three-statements", "/valuation/dcf", "/comps-peer-selection"].includes(item.route)
+    ? searchVisibilityLastModified
+    : defaultLastModified;
+  assert.equal(sitemapEntry.lastModified.getTime(), expectedLastModified, `${item.route} sitemap lastModified must match the substantive update date`);
   assert.ok(generatedSitemap.includes(`<loc>${expectedCanonical}</loc>`), `Generated sitemap must include ${item.route}`);
 
   assert.equal(contentCatalog.filter((entry) => entry.href === item.route).length, 1, `Catalog must contain ${item.route} exactly once`);

@@ -151,6 +151,38 @@ Search Consoleでは、以下のサイトマップを送信してください。
 https://data-lab-23.github.io/financial-modeling-lab/sitemap.xml
 ```
 
+### Google Search Consoleへの登録
+
+1. Search Consoleで`URL プレフィックス`を選び、次のURLを登録します。
+
+```txt
+https://data-lab-23.github.io/financial-modeling-lab/
+```
+
+2. 所有権確認方法で`HTMLタグ`を選び、Googleが表示する`content`の値だけをコピーします。
+3. GitHubリポジトリの`Settings` → `Secrets and variables` → `Actions` → `Variables`へ、次のRepository variableを追加します。
+
+```txt
+Name:
+NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+
+Value:
+Googleのmetaタグに表示されたcontentの値
+```
+
+4. GitHub Actionsを再実行し、公開後にSearch Consoleで所有権を確認します。
+5. `サイトマップ`から`sitemap.xml`を送信します。
+6. `URL検査`で、まず次の主要ページのインデックス登録をリクエストします。
+
+- `/financial-modeling`
+- `/three-statements`
+- `/valuation/dcf`
+- `/comps-peer-selection`
+- `/excel-templates`
+- `/private-company-valuation`
+
+検索順位はすぐには確定しないため、表示回数、クリック数、クリック率、平均掲載順位を週次で確認します。
+
 ## 公開
 
 `main` ブランチへのpushでGitHub Actionsが実行され、GitHub Pagesへ公開されます。

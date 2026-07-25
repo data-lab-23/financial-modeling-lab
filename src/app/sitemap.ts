@@ -4,7 +4,8 @@ import { lessons } from "@/data/site";
 export const dynamic = "force-static";
 
 const base = process.env.NEXT_PUBLIC_SITE_URL ?? "https://data-lab-23.github.io/financial-modeling-lab";
-const lastModified = new Date("2026-07-11T00:00:00+09:00");
+const lastModified = new Date("2026-07-22T00:00:00+09:00");
+const searchVisibilityModified = new Date("2026-07-25T00:00:00+09:00");
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const paths = [
@@ -43,12 +44,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return paths.map((item) => ({
     url: `${base}${item.path}`,
-    lastModified: item.path.startsWith("/valuation/dcf") || item.path === "/downloads/dcf-valuation-model"
-      ? new Date("2026-07-22T00:00:00+09:00")
-      : item.path === "/comps-peer-selection" ? new Date("2026-07-22T00:00:00+09:00")
-      : ["/financial-modeling", "/valuation", "/ma-modeling", "/excel-templates", "/three-statements"].includes(item.path)
-        ? new Date("2026-07-22T00:00:00+09:00")
-        : lastModified,
+    lastModified: ["/three-statements", "/valuation/dcf", "/comps-peer-selection"].includes(item.path)
+      ? searchVisibilityModified
+      : lastModified,
     changeFrequency: item.changeFrequency,
     priority: item.priority,
   }));

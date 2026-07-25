@@ -85,8 +85,8 @@ export const contentCatalog: ContentEntry[] = [
   },
   {
     href: "/three-statements",
-    title: "財務三表を連動させる",
-    summary: "PL、BS、CFを一方向の参照で接続し、現金及び預金の増減へ変換します。",
+    title: "三表モデルの作り方",
+    summary: "PL、BS、CFをExcelで一方向に接続し、期末現預金と貸借一致まで確認します。",
     type: "article", topic: "financial-modeling", level: "実践", readingTime: "18分", keywords: ["財務三表", "PL", "BS", "CF", "three statements"], featured: true,
   },
   {
@@ -97,14 +97,14 @@ export const contentCatalog: ContentEntry[] = [
   },
   {
     href: "/comps-peer-selection",
-    title: "類似会社比較法：比較会社の選定とマルチプル分析",
-    summary: "類似会社の選定根拠を整理し、マルチプルでEnterprise Valueを比較する方法を解説します。",
+    title: "類似会社の選定方法",
+    summary: "候補抽出、採用・除外理由、EV／EBITDA比較までを実務形式で解説します。",
     type: "article", topic: "valuation", level: "実践", readingTime: "22分", keywords: ["類似会社比較", "主要比較会社", "Core Peer", "Comps", "Peer", "マルチプル", "EV/EBITDA"], featured: true,
   },
   {
     href: "/valuation/dcf",
-    title: "DCF評価の基礎",
-    summary: "FCFF、WACC、継続価値、株主価値へのブリッジを5つのステップで学びます。",
+    title: "DCF法の計算方法とExcelでの作り方",
+    summary: "FCFF、WACC、継続価値、Enterprise Value、Equity Valueを数値例とExcelで学びます。",
     type: "hub", topic: "valuation", level: "基礎から実務", readingTime: "案内", keywords: ["DCF", "企業価値", "FCFF", "WACC", "discounted cash flow"], featured: true,
   },
   {

@@ -1,18 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { EditorialDetails } from "@/components/EditorialDetails";
 import { calculateDcf, calculateEquityBridge, calculateFcff, calculateWacc, dcfCase } from "@/data/dcf-series";
+import { getEditorialRecord } from "@/data/editorial";
 
 const canonical = "https://data-lab-23.github.io/financial-modeling-lab/valuation/dcf";
 
 export const metadata: Metadata = {
-  title: "DCF評価の基礎｜FCFFから株主価値まで5ステップで学ぶ",
-  description: "同じ架空企業の数値を使い、FCFF、WACC、継続価値、感応度、Enterprise ValueからEquity Valueへの調整を順に学ぶDCF講座です。",
+  title: "DCF法の計算方法とExcelでの作り方｜FCFF・WACC・継続価値",
+  description: "DCF法の計算方法を、FCFF、WACC、継続価値、感応度、Enterprise ValueからEquity Valueへの調整まで、数値例とExcel教材で解説します。",
   alternates: { canonical },
   openGraph: {
-    title: "DCF評価の基礎｜FCFFから株主価値まで5ステップで学ぶ",
-    description: "共有ケースとExcelセル式でDCF評価の全体像を学ぶ教育用シリーズ。",
+    title: "DCF法の計算方法とExcelでの作り方｜FCFF・WACC・継続価値",
+    description: "一つの数値例とExcelセル式で、FCFFからEnterprise Value・Equity Valueまで計算する実務講座。",
     url: canonical,
-    type: "website",
+    type: "article",
   },
 };
 
@@ -28,6 +30,7 @@ export default function DcfHubPage() {
   const valuation = calculateDcf(dcfCase);
   const bridge = calculateEquityBridge(valuation.enterpriseValue, dcfCase.bridge);
   const firstFcff = calculateFcff(dcfCase.forecasts[0]);
+  const editorialRecord = getEditorialRecord("/valuation/dcf");
 
   return (
     <>
@@ -38,7 +41,7 @@ export default function DcfHubPage() {
             <Link href="/valuation" className="hover:text-[#147d73]">Valuation</Link><span aria-hidden="true"> / </span><span>DCF評価</span>
           </nav>
           <div className="eyebrow">DCF学習シリーズ</div>
-          <h1 className="mt-3 max-w-5xl text-4xl font-bold leading-tight tracking-[-.04em] text-[#102235] md:text-6xl">DCF評価を、FCFFから株主価値まで一つのケースでつなぐ</h1>
+          <h1 className="mt-3 max-w-5xl text-4xl font-bold leading-tight tracking-[-.04em] text-[#102235] md:text-6xl">DCF法の計算方法とExcelでの作り方</h1>
           <p className="mt-5 max-w-3xl text-lg text-[#607080]">サンプル部品株式会社の2026年度から2030年度までの予測を使い、5つの計算をExcelへ落とし込む順番で学びます。</p>
           <div className="mt-7 flex flex-wrap gap-3">
             <a href="#dcf-series" className="button green">5ステップを始める</a>
@@ -98,6 +101,14 @@ export default function DcfHubPage() {
           <p>このケースは教育目的の画面表示用サンプルです。ライブ市場データを使っておらず、個別案件の意思決定に利用できる状態ではありません。</p>
           <Link href="/downloads/dcf-valuation-model" className="button green mt-5">DCF評価モデルの使い方を見る</Link>
         </section>
+        <EditorialDetails
+          record={editorialRecord}
+          breadcrumbs={[
+            { name: "ホーム", href: "/" },
+            { name: "Valuation", href: "/valuation" },
+            { name: editorialRecord.title, href: editorialRecord.href },
+          ]}
+        />
       </div>
     </>
   );
