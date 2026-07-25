@@ -28,7 +28,8 @@ for (const stage of practicalWorkflow) {
   assert.ok(stage.reviewComment.length > 0, `${stage.id}: レビュー指摘が必要`);
 }
 
-assert.equal(practicalSourceSheets.length, 9);
+assert.equal(practicalSourceSheets.length, 10);
+assert.ok(practicalSourceSheets.includes("09_勘定科目対応"));
 assert.equal(practicalModelSheets.length, 19);
 assert.deepEqual(practicalQualityGate.readiness.map((item) => item.name), ["Ready", "Ready with caveats", "Not ready"]);
 assert.deepEqual(practicalQualityGate.severities.map((item) => item.name), ["Critical", "Major", "Minor"]);

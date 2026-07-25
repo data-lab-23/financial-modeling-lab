@@ -51,5 +51,8 @@ for (const file of ["08_東都精密工業_受領資料パック.xlsx", "09_東�
   assert.ok(downloads.includes(`/downloads/${file}`), `downloads href: ${file}`);
   assert.ok(excelTemplates.includes(`/downloads/${file}`), `excel templates href: ${file}`);
 }
+for (const expected of ["5年間完全連動", "数式による自動チェック", "勘定科目対応表", "教育用・実案件への利用不可"]) {
+  assert.ok(downloads.includes(expected), `downloads: ${expected}`);
+}
 
 console.log("Practical core pages validation passed");

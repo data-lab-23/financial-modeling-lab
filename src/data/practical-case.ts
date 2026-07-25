@@ -52,6 +52,7 @@ export const practicalSourceSheets = [
   "06_借入金明細",
   "07_運転資本明細",
   "08_資料管理",
+  "09_勘定科目対応",
 ] as const;
 
 export const practicalModelSheets = [
@@ -80,16 +81,16 @@ export const practicalDownloads = [
   {
     file: "08_東都精密工業_受領資料パック.xlsx",
     audience: "受領資料の確認、実績整理、差異調査を実務形式で練習したい方",
-    content: "月次試算表、勘定科目明細、販売実績、事業計画、固定資産、借入金、運転資本、資料管理",
-    size: "約30KB",
+    content: "PL・BS全科目の月次試算表、勘定科目明細、販売実績、事業計画、固定資産、借入金、運転資本、資料管理、勘定科目対応",
+    size: "約23KB",
     updated: "2026-07-25",
     terms: "教育目的・再配布不可",
   },
   {
     file: "09_東都精密工業_完成三表モデル.xlsx",
     audience: "前提条件からPL・BS・CFを連動させ、レビューまで確認したい方",
-    content: "5年予測、Base / Upside / Downside、補助計算、財務三表、出力、チェック、指摘事項、変更履歴",
-    size: "約50KB",
+    content: "5年完全連動、Base / Upside / Downside、補助計算、財務三表、経営指標、数式チェック、指摘事項、変更履歴",
+    size: "約48KB",
     updated: "2026-07-25",
     terms: "教育目的・再配布不可",
   },
