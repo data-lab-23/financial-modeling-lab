@@ -245,6 +245,41 @@ export const contentCatalog: ContentEntry[] = [
     summary: "教育コンテンツの制作基準、更新・訂正、広告・アフィリエイト、免責の方針を示します。",
     type: "reference", topic: "financial-modeling", level: "参考", readingTime: "5分", keywords: ["編集方針", "出典", "訂正", "免責"], featured: false,
   },
+  {
+    href: "/working-capital-model",
+    title: "運転資本モデルの作り方",
+    summary: "売掛金・棚卸資産・買掛金を回転日数から予測し、正味運転資本とCFへ接続します。",
+    type: "article", topic: "financial-modeling", level: "実務", readingTime: "18分",
+    keywords: ["運転資本", "運転資本モデル", "回転日数", "Excel", "CCC"], featured: true,
+  },
+  {
+    href: "/working-capital/receivables",
+    title: "売掛金の予測と回収日数",
+    summary: "売上高と回収日数から売掛金を予測し、延滞債権と回収条件を切り分けます。",
+    type: "article", topic: "financial-modeling", level: "実務", readingTime: "10分",
+    keywords: ["売掛金", "回収日数", "運転資本", "Excel"], featured: false,
+  },
+  {
+    href: "/working-capital/inventory",
+    title: "棚卸資産の予測と在庫回転日数",
+    summary: "売上原価と在庫回転日数から棚卸資産を予測し、滞留在庫を切り分けます。",
+    type: "article", topic: "financial-modeling", level: "実務", readingTime: "10分",
+    keywords: ["棚卸資産", "在庫回転日数", "運転資本", "Excel"], featured: false,
+  },
+  {
+    href: "/working-capital/payables",
+    title: "買掛金の予測と支払日数",
+    summary: "売上原価と支払日数から買掛金を予測し、仕入条件と資金繰りを確認します。",
+    type: "article", topic: "financial-modeling", level: "実務", readingTime: "10分",
+    keywords: ["買掛金", "支払日数", "運転資本", "Excel"], featured: false,
+  },
+  {
+    href: "/working-capital/cash-conversion-cycle",
+    title: "CCCの計算と資金繰りへの影響",
+    summary: "回収・在庫・支払日数からCCCを計算し、運転資金負担を分析します。",
+    type: "article", topic: "financial-modeling", level: "実務", readingTime: "10分",
+    keywords: ["CCC", "キャッシュ・コンバージョン・サイクル", "運転資金", "Excel"], featured: false,
+  },
 ];
 
 export function getRelatedContent(href: string, limit: number): ContentEntry[] {

@@ -8,6 +8,13 @@ import ReceivablesPage from "../src/app/working-capital/receivables/page";
 import InventoryPage from "../src/app/working-capital/inventory/page";
 import PayablesPage from "../src/app/working-capital/payables/page";
 import CashConversionCyclePage from "../src/app/working-capital/cash-conversion-cycle/page";
+import BalanceSheetPage from "../src/app/bs-model/page";
+import CashFlowPage from "../src/app/cf-model/page";
+import ThreeStatementsPage from "../src/app/three-statements/page";
+import FcffPage from "../src/app/valuation/dcf/fcff/page";
+import sitemap from "../src/app/sitemap";
+import { ARTICLE_HREFS, editorialRecords } from "../src/data/editorial";
+import { contentCatalog } from "../src/data/content-catalog";
 import {
   calculateWorkingCapital,
   workingCapitalCase,
@@ -70,6 +77,23 @@ for (const markup of [hubMarkup, receivablesMarkup, inventoryMarkup, payablesMar
   assert.match(markup, /Excelでの実装/);
   assert.match(markup, /よくある誤り/);
   assert.match(markup, /レビュー時の確認項目/);
+}
+
+const sitemapEntries = sitemap();
+for (const page of workingCapitalPages) {
+  assert.ok(ARTICLE_HREFS.includes(page.href), `${page.href}: 編集対象`);
+  assert.ok(editorialRecords.some((record) => record.href === page.href), `${page.href}: 編集情報`);
+  assert.ok(contentCatalog.some((entry) => entry.href === page.href), `${page.href}: 記事カタログ`);
+  assert.ok(sitemapEntries.some((entry) => entry.url.endsWith(page.href)), `${page.href}: サイトマップ`);
+}
+
+for (const markup of [
+  renderToStaticMarkup(<BalanceSheetPage />),
+  renderToStaticMarkup(<CashFlowPage />),
+  renderToStaticMarkup(<ThreeStatementsPage />),
+  renderToStaticMarkup(<FcffPage />),
+]) {
+  assert.match(markup, /href="\/working-capital-model"/);
 }
 
 console.log("Working capital series validation passed");

@@ -17,6 +17,11 @@ const articleRoutes = [
   "/excel-functions",
   "/roadmap",
   "/three-statements",
+  "/working-capital-model",
+  "/working-capital/receivables",
+  "/working-capital/inventory",
+  "/working-capital/payables",
+  "/working-capital/cash-conversion-cycle",
   "/private-company-valuation",
   "/comps-peer-selection",
   "/valuation/dcf",
@@ -56,7 +61,7 @@ for (const href of articleRoutes) {
   assert.match(record.publishedDate, /^\d{4}-\d{2}-\d{2}$/);
   assert.match(record.modifiedDate, /^\d{4}-\d{2}-\d{2}$/);
   assert.ok(record.modifiedDate >= record.publishedDate, `${href} cannot be modified before publication`);
-  assert.ok(record.modifiedDate <= "2026-07-25", `${href} cannot publish future revision metadata`);
+  assert.ok(record.modifiedDate <= "2026-07-26", `${href} cannot publish future revision metadata`);
   modifiedDates.add(record.modifiedDate);
   assert.ok(record.revisionSummary.length >= 10, `${href} needs a substantive revision summary`);
   assert.ok(record.sources.length > 0, `${href} needs at least one external source`);
@@ -101,7 +106,7 @@ for (const href of articleRoutes) {
   assert.match(html, /https:\/\/data-lab-23\.github\.io\/financial-modeling-lab/);
 }
 
-assert.deepEqual([...modifiedDates].sort(), ["2026-07-22", "2026-07-25"], "articles must carry their actual revision dates");
+assert.deepEqual([...modifiedDates].sort(), ["2026-07-22", "2026-07-25", "2026-07-26"], "articles must carry their actual revision dates");
 assert.throws(() => getEditorialRecord("/missing"), /editorial record/i);
 
 console.log("Editorial validation passed");

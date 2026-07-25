@@ -92,6 +92,17 @@ export function DcfLessonShell({
       <div className="article-container grid gap-10 py-10 lg:grid-cols-[minmax(0,1fr)_270px] xl:gap-20">
         <article className="article-copy min-w-0">
           {children}
+          {href === "/valuation/dcf/fcff" && (
+            <section className="callout">
+              <strong>運転資本増減の計算根拠</strong>
+              <br />
+              FCFFから控除する運転資本増減は、
+              <Link href="/working-capital-model" className="font-bold text-[#147d73] underline underline-offset-4">
+                運転資本モデルの作り方
+              </Link>
+              で売掛金・棚卸資産・買掛金へ分解して確認できます。
+            </section>
+          )}
 
           <div className="callout warning">
             <strong>利用上の注意</strong>

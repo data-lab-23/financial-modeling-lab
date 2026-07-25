@@ -5,6 +5,7 @@ import { normalizeSearchText, scoreContent, searchContent } from "../src/lib/con
 const expectedHrefs = [
   "/financial-modeling", "/valuation", "/ma-modeling", "/excel-templates",
   "/model-design", "/assumptions", "/revenue-kpi", "/pl-model", "/bs-model", "/cf-model", "/excel-functions", "/roadmap", "/three-statements",
+  "/working-capital-model", "/working-capital/receivables", "/working-capital/inventory", "/working-capital/payables", "/working-capital/cash-conversion-cycle",
   "/private-company-valuation", "/comps-peer-selection",
   "/valuation/dcf", "/valuation/dcf/fcff", "/valuation/dcf/wacc", "/valuation/dcf/terminal-value", "/valuation/dcf/sensitivity-analysis", "/valuation/dcf/enterprise-to-equity",
   "/downloads", "/downloads/01_仕訳演習.xlsx", "/downloads/02_前提条件入力.xlsx", "/downloads/03_PLモデル練習.xlsx", "/downloads/04_BS_CF統合練習.xlsx", "/downloads/05_完成3表モデル.xlsx", "/downloads/06_DCF評価モデル.xlsx", "/downloads/07_モデル品質チェックリスト.xlsx", "/downloads/08_東都精密工業_受領資料パック.xlsx", "/downloads/09_東都精密工業_完成三表モデル.xlsx", "/downloads/類似会社選定ワークシート.xlsx", "/downloads/dcf-valuation-model",

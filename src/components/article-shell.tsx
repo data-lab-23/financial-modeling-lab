@@ -88,6 +88,17 @@ export function ArticleShell({
             </>
           )}
           {children}
+          {(["/bs-model", "/cf-model", "/three-statements"] as ArticleHref[]).includes(href) && (
+            <section className="callout">
+              <strong>運転資本を勘定別に組み立てる</strong>
+              <br />
+              売掛金・棚卸資産・買掛金を回転日数から予測し、正味運転資本の増減をキャッシュ・フローへ接続する手順は、
+              <Link href="/working-capital-model" className="font-bold text-[#147d73] underline underline-offset-4">
+                運転資本モデルの作り方
+              </Link>
+              で数値例とExcel数式を確認できます。
+            </section>
+          )}
           <div className="callout warning">
             <strong>重要</strong>
             <br />
