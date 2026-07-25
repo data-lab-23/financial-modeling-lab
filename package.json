@@ -28,7 +28,9 @@
     "validate:search": "tsx scripts/validate-search-visibility.tsx",
     "generate:practical-workbooks": "tsx scripts/create-practical-case-workbooks.ts",
     "test:practical-workbooks": "tsx scripts/test-practical-case-workbooks.ts",
-    "validate:working-capital": "tsx scripts/validate-working-capital-series.tsx"
+    "validate:working-capital": "tsx scripts/validate-working-capital-series.tsx",
+    "generate:working-capital-workbook": "tsx scripts/create-working-capital-workbook.ts",
+    "test:working-capital-workbook": "tsx scripts/test-working-capital-workbook.ts"
   },
   "dependencies": {
     "next": "16.2.10",
