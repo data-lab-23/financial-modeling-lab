@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { workingCapitalWorkbook } from "@/data/working-capital-case";
 
 export function WorkingCapitalDownload() {
@@ -10,13 +11,13 @@ export function WorkingCapitalDownload() {
       <p className="mt-3 text-sm leading-7 text-white/75">
         売掛金・棚卸資産・買掛金・正味運転資本・CCCを同じ前提条件から計算する8シート構成です。
       </p>
-      <a
+      <Link
         href={workingCapitalWorkbook.href}
         download={workingCapitalWorkbook.filename}
         className="mt-5 inline-flex rounded-full bg-white px-5 py-3 font-bold text-[#102235]"
       >
         {workingCapitalWorkbook.filename}
-      </a>
+      </Link>
       <p className="mt-3 text-xs text-white/55">教育目的・実案件への利用不可｜更新日：{workingCapitalWorkbook.updated}</p>
     </aside>
   );

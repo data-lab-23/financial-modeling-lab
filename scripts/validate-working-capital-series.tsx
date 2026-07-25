@@ -15,6 +15,7 @@ import FcffPage from "../src/app/valuation/dcf/fcff/page";
 import sitemap from "../src/app/sitemap";
 import { ARTICLE_HREFS, editorialRecords } from "../src/data/editorial";
 import { contentCatalog } from "../src/data/content-catalog";
+import ExcelTemplatesPage from "../src/app/excel-templates/page";
 import {
   calculateWorkingCapital,
   workingCapitalCase,
@@ -95,5 +96,11 @@ for (const markup of [
 ]) {
   assert.match(markup, /href="\/working-capital-model"/);
 }
+
+const excelTemplatesMarkup = renderToStaticMarkup(<ExcelTemplatesPage />);
+assert.match(excelTemplatesMarkup, /運転資本モデル/);
+assert.match(excelTemplatesMarkup, /working-capital-model\.xlsx/);
+assert.match(excelTemplatesMarkup, /売掛金・棚卸資産・買掛金・CCC/);
+assert.match(excelTemplatesMarkup, /href="\/working-capital-model"/);
 
 console.log("Working capital series validation passed");
