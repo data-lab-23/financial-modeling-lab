@@ -166,11 +166,12 @@ const generatedSitemap = readFileSync(path.join(outRoot, "sitemap.xml"), "utf8")
 
 const exportedHtmlFiles = listFiles(outRoot).filter((filePath) => filePath.endsWith(".html"));
 const notFoundArtifacts = exportedHtmlFiles.filter((filePath) => ["404.html", "_not-found.html"].includes(path.basename(filePath)));
+const verificationArtifacts = exportedHtmlFiles.filter((filePath) => /^google[\w-]+\.html$/u.test(path.basename(filePath)));
 const exportedPages = exportedHtmlFiles
-  .filter((filePath) => !notFoundArtifacts.includes(filePath))
+  .filter((filePath) => !notFoundArtifacts.includes(filePath) && !verificationArtifacts.includes(filePath))
   .map((htmlPath) => ({ htmlPath, route: exportedHtmlRoute(htmlPath) }));
 
-assert.equal(exportedPages.length, 34, "Static export must contain all 34 user-facing HTML routes");
+assert.equal(exportedPages.length, sitemapEntries.length, "Static export must contain every sitemap route exactly once");
 assert.equal(new Set(exportedPages.map(({ route }) => route)).size, exportedPages.length, "Every exported HTML file must map to one unique route");
 
 for (const htmlPath of notFoundArtifacts) {

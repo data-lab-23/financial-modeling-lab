@@ -3,7 +3,7 @@ import { WorkingCapitalFormulaTable } from "@/components/working-capital/Working
 import { WorkingCapitalLessonLayout } from "@/components/working-capital/WorkingCapitalLessonLayout";
 import { workingCapitalCase } from "@/data/working-capital-case";
 const canonical = "https://data-lab-23.github.io/financial-modeling-lab/working-capital/inventory";
-export const metadata: Metadata = { title: "棚卸資産の予測方法｜在庫回転日数とExcel数式", description: "売上原価と在庫回転日数から棚卸資産を予測し、滞留在庫・季節性・評価減をExcelモデルへ反映します。", alternates: { canonical } };
+export const metadata: Metadata = { title: "棚卸資産の予測方法｜在庫回転日数とExcel数式", description: "売上原価と在庫回転日数から棚卸資産を予測し、滞留在庫・季節性・評価減をExcelモデルへ反映します。", alternates: { canonical }, openGraph: { title: "棚卸資産の予測方法｜在庫回転日数とExcel数式", description: "売上原価と在庫回転日数から棚卸資産を予測し、滞留在庫・季節性・評価減をExcelモデルへ反映します。", url: canonical, type: "article" } };
 const faqs = [
   { question: "在庫回転日数には売上高と売上原価のどちらを使いますか？", answer: "棚卸資産は原価で計上されるため、通常は売上原価を使います。" },
   { question: "滞留在庫は回転日数へ含めますか？", answer: "通常在庫と分け、処分・販売・評価減の計画を個別に置く方が説明しやすくなります。" },

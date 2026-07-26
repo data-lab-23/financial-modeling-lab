@@ -4,7 +4,7 @@ import { WorkingCapitalLessonLayout } from "@/components/working-capital/Working
 import { workingCapitalCase } from "@/data/working-capital-case";
 
 const canonical = "https://data-lab-23.github.io/financial-modeling-lab/working-capital/receivables";
-export const metadata: Metadata = { title: "売掛金の予測方法｜回収日数とExcel数式", description: "売上高と回収日数から売掛金を予測し、延滞債権や回収条件をExcelモデルへ反映する方法を数値例で解説します。", alternates: { canonical } };
+export const metadata: Metadata = { title: "売掛金の予測方法｜回収日数とExcel数式", description: "売上高と回収日数から売掛金を予測し、延滞債権や回収条件をExcelモデルへ反映する方法を数値例で解説します。", alternates: { canonical }, openGraph: { title: "売掛金の予測方法｜回収日数とExcel数式", description: "売上高と回収日数から売掛金を予測し、延滞債権や回収条件をExcelモデルへ反映します。", url: canonical, type: "article" } };
 const faqs = [
   { question: "売掛金回収日数はどの売上高を使いますか？", answer: "原則は掛売上高を使います。現金売上が重要な場合は総売上高から分けて計算します。" },
   { question: "延滞債権は通常の回収日数に含めますか？", answer: "通常残高と延滞債権を分け、延滞分は個別回収計画または回収不能見込みで評価します。" },

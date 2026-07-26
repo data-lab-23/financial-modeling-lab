@@ -3,11 +3,11 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { WorkingCapitalDownload } from "../src/components/working-capital/WorkingCapitalDownload";
 import { WorkingCapitalFormulaTable } from "../src/components/working-capital/WorkingCapitalFormulaTable";
 import { WorkingCapitalNavigation } from "../src/components/working-capital/WorkingCapitalNavigation";
-import WorkingCapitalHub from "../src/app/working-capital-model/page";
-import ReceivablesPage from "../src/app/working-capital/receivables/page";
-import InventoryPage from "../src/app/working-capital/inventory/page";
-import PayablesPage from "../src/app/working-capital/payables/page";
-import CashConversionCyclePage from "../src/app/working-capital/cash-conversion-cycle/page";
+import WorkingCapitalHub, { metadata as hubMetadata } from "../src/app/working-capital-model/page";
+import ReceivablesPage, { metadata as receivablesMetadata } from "../src/app/working-capital/receivables/page";
+import InventoryPage, { metadata as inventoryMetadata } from "../src/app/working-capital/inventory/page";
+import PayablesPage, { metadata as payablesMetadata } from "../src/app/working-capital/payables/page";
+import CashConversionCyclePage, { metadata as cccMetadata } from "../src/app/working-capital/cash-conversion-cycle/page";
 import BalanceSheetPage from "../src/app/bs-model/page";
 import CashFlowPage from "../src/app/cf-model/page";
 import ThreeStatementsPage from "../src/app/three-statements/page";
@@ -33,6 +33,13 @@ assert.equal(workingCapitalCase.forecast.inventoryDays, 65);
 assert.equal(workingCapitalCase.forecast.payableDays, 40);
 assert.equal(workingCapitalPages.length, 5);
 assert.equal(workingCapitalWorkbook.filename, "working-capital-model.xlsx");
+for (const [page, metadata] of workingCapitalPages.map((page, index) => [
+  page,
+  [hubMetadata, receivablesMetadata, inventoryMetadata, payablesMetadata, cccMetadata][index],
+] as const)) {
+  assert.equal(metadata.alternates?.canonical, `https://data-lab-23.github.io/financial-modeling-lab${page.href}`);
+  assert.equal(metadata.openGraph?.url, `https://data-lab-23.github.io/financial-modeling-lab${page.href}`);
+}
 assert.throws(
   () => calculateWorkingCapital({ ...workingCapitalCase.forecast, daysInYear: 0 }),
   /年間日数/,

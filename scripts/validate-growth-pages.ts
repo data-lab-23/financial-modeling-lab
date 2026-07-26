@@ -19,6 +19,9 @@ import { buildSensitivityMatrix, calculateDcf, calculateEquityBridge, calculateF
 
 const deploymentBase = "https://data-lab-23.github.io/financial-modeling-lab";
 const unpublishedHrefs = new Set<string>();
+const supplementalHubLinks: Partial<Record<ContentEntry["topic"], string[]>> = {
+  excel: ["/downloads/working-capital-model.xlsx", "/working-capital-model"],
+};
 
 const hubs = [
   {
@@ -60,12 +63,14 @@ const siteData = readFileSync("src/data/site.ts", "utf8");
 const headings = new Set<string>();
 
 function getExpectedLinks(topic: ContentEntry["topic"], currentHref: string) {
-  return contentCatalog
+  const catalogLinks = contentCatalog
     .filter((item) => (
       item.topic === topic || (topic === "excel" && item.href === "/downloads/dcf-valuation-model")
     ) && item.href !== currentHref && !unpublishedHrefs.has(item.href))
     .sort((a, b) => Number(b.featured) - Number(a.featured) || a.title.localeCompare(b.title, "ja"))
     .map((item) => item.href);
+
+  return [...catalogLinks, ...(supplementalHubLinks[topic] ?? [])];
 }
 
 for (const hub of hubs) {
@@ -90,7 +95,13 @@ for (const hub of hubs) {
   assert.match(markup, /今後扱うテーマ/);
   assert.deepEqual(hrefs, expectedLinks, `${hub.route} must render only its available catalog content in featured-first order`);
   assert.equal(new Set(hrefs).size, hrefs.length, `${hub.route} must not duplicate hrefs`);
-  assert.ok(hrefs.every((href) => contentCatalog.some((item) => item.href === href)), `${hub.route} contains an unknown href`);
+  assert.ok(
+    hrefs.every((href) => (
+      contentCatalog.some((item) => item.href === href)
+      || (supplementalHubLinks[hub.topic] ?? []).includes(href)
+    )),
+    `${hub.route} contains an unknown href`,
+  );
   assert.ok(hrefs.every((href) => !unpublishedHrefs.has(href)), `${hub.route} links to unpublished content`);
   assert.ok(hrefs.every((href) => !/\/(ppa|lbo|sources-and-uses)/.test(href)), `${hub.route} links to an unpublished future topic`);
 }

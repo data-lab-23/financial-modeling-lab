@@ -3,7 +3,7 @@ import { WorkingCapitalFormulaTable } from "@/components/working-capital/Working
 import { WorkingCapitalLessonLayout } from "@/components/working-capital/WorkingCapitalLessonLayout";
 import { workingCapitalCase } from "@/data/working-capital-case";
 const canonical = "https://data-lab-23.github.io/financial-modeling-lab/working-capital/cash-conversion-cycle";
-export const metadata: Metadata = { title: "CCCの計算方法｜運転資金とExcel分析", description: "回収日数・在庫回転日数・支払日数からCCCを計算し、運転資金負担とキャッシュ・フローへの影響を分析します。", alternates: { canonical } };
+export const metadata: Metadata = { title: "CCCの計算方法｜運転資金とExcel分析", description: "回収日数・在庫回転日数・支払日数からCCCを計算し、運転資金負担とキャッシュ・フローへの影響を分析します。", alternates: { canonical }, openGraph: { title: "CCCの計算方法｜運転資金とExcel分析", description: "回収日数・在庫回転日数・支払日数からCCCを計算し、運転資金負担とキャッシュ・フローへの影響を分析します。", url: canonical, type: "article" } };
 const faqs = [
   { question: "CCCは短いほど必ず良いですか？", answer: "一般には資金効率が高まりますが、過度な在庫削減や仕入先への負担転嫁が事業継続性を損なわないか確認します。" },
   { question: "CCCだけで運転資金額を計算できますか？", answer: "CCCは日数指標です。金額を計算するには売上高・売上原価と各勘定の回転日数を使います。" },

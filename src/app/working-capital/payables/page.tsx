@@ -3,7 +3,7 @@ import { WorkingCapitalFormulaTable } from "@/components/working-capital/Working
 import { WorkingCapitalLessonLayout } from "@/components/working-capital/WorkingCapitalLessonLayout";
 import { workingCapitalCase } from "@/data/working-capital-case";
 const canonical = "https://data-lab-23.github.io/financial-modeling-lab/working-capital/payables";
-export const metadata: Metadata = { title: "買掛金の予測方法｜支払日数とExcel数式", description: "売上原価と支払日数から買掛金を予測し、仕入条件と資金繰りへの影響をExcelモデルへ反映します。", alternates: { canonical } };
+export const metadata: Metadata = { title: "買掛金の予測方法｜支払日数とExcel数式", description: "売上原価と支払日数から買掛金を予測し、仕入条件と資金繰りへの影響をExcelモデルへ反映します。", alternates: { canonical }, openGraph: { title: "買掛金の予測方法｜支払日数とExcel数式", description: "売上原価と支払日数から買掛金を予測し、仕入条件と資金繰りへの影響をExcelモデルへ反映します。", url: canonical, type: "article" } };
 const faqs = [
   { question: "買掛金は売上原価から計算してよいですか？", answer: "簡便法では可能ですが、外注費や在庫増減が重要なら仕入高ベースへ調整します。" },
   { question: "支払日数を長くすれば価値は上がりますか？", answer: "短期的にはCFが改善しますが、契約条件や仕入先との関係を超えた延長は継続可能ではありません。" },
