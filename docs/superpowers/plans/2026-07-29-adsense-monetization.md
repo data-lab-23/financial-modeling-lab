@@ -10,7 +10,7 @@
 
 ## Global Constraints
 
-- 手動広告は長文記事の本文末尾に1枠だけ置く。
+- 全ページの本文終了後に1枠、長文記事の編集情報後に1枠を置く。
 - ダウンロード、フォーム、ナビゲーションの近くには置かない。
 - 広告IDをコードへ直書きしない。
 - 未設定時はscriptと広告枠を出力しない。
@@ -38,6 +38,7 @@
 
 **Files:**
 - Modify: `src/app/layout.tsx`
+- Create: `src/components/PageEndAd.tsx`
 - Modify: `src/components/article-shell.tsx`
 - Modify: `src/components/DcfLessonShell.tsx`
 - Modify: `src/components/working-capital/WorkingCapitalLessonLayout.tsx`
@@ -47,7 +48,7 @@
 - Consumes: `AdSenseScript`、`AdUnit`
 
 - [ ] 検証に各シェルの広告枠要件を追加して失敗を確認する。
-- [ ] ルートへscript、三つの記事シェルへ本文末尾広告を追加する。
+- [ ] ルートへscriptとページ末尾広告、三つの記事シェルへ本文末尾広告を追加する。
 - [ ] 目立たない広告ラベルとレスポンシブ余白を追加する。
 - [ ] 広告検証を成功させる。
 

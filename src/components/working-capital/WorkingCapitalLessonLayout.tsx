@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { AdUnit } from "@/components/AdUnit";
 import { WorkingCapitalDownload } from "./WorkingCapitalDownload";
 import { WorkingCapitalNavigation } from "./WorkingCapitalNavigation";
 import type { WorkingCapitalHref } from "@/data/working-capital-case";
@@ -96,6 +97,7 @@ export function WorkingCapitalLessonLayout({
               教育目的の一般情報であり、個別案件への助言ではありません。
             </p>
           </section>
+          <AdUnit placement="article-end" />
         </div>
         <aside className="h-fit rounded-2xl border border-[#d8e0e5] bg-white p-5 lg:sticky lg:top-24">
           <p className="text-xs font-bold tracking-[.12em] text-[#607080]">この講座で確認すること</p>

@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "tsx scripts/create-ads-txt.ts",
     "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint",
@@ -29,6 +30,8 @@
     "generate:practical-workbooks": "tsx scripts/create-practical-case-workbooks.ts",
     "test:practical-workbooks": "tsx scripts/test-practical-case-workbooks.ts",
     "validate:working-capital": "tsx scripts/validate-working-capital-series.tsx",
+    "validate:adsense": "tsx scripts/validate-adsense.tsx",
+    "generate:ads-txt": "tsx scripts/create-ads-txt.ts",
     "generate:working-capital-workbook": "tsx scripts/create-working-capital-workbook.ts",
     "test:working-capital-workbook": "tsx scripts/test-working-capital-workbook.ts"
   },

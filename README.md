@@ -133,6 +133,27 @@ G-XXXXXXXXXX
 - `template_download`
 - `contact_submit`
 - `scroll_depth`
+
+## Google AdSense
+
+広告コードはpublisher IDと記事末尾広告slotが両方設定されている場合だけ表示されます。未設定時は広告script・広告枠・空白を出力しません。
+
+ローカルでは`.env.local`、GitHub Pagesでは`Settings` → `Secrets and variables` → `Actions` → `Variables`へ次を登録します。
+
+```txt
+NEXT_PUBLIC_ADSENSE_CLIENT=ca-pub-1234567890123456
+NEXT_PUBLIC_ADSENSE_ARTICLE_SLOT=1234567890
+ADSENSE_PUBLISHER_ID=1234567890123456
+```
+
+`ADSENSE_PUBLISHER_ID`は省略可能で、その場合は`NEXT_PUBLIC_ADSENSE_CLIENT`から`ads.txt`用IDを生成します。
+
+```bash
+npm run validate:adsense
+npm run generate:ads-txt
+```
+
+欧州経済領域、英国、スイス向けには、AdSense管理画面の「プライバシーとメッセージ」でGoogle認定CMPを有効にします。
 - `article_read_complete`
 
 ## SEO

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AdUnit } from "@/components/AdUnit";
 import { CTASection } from "@/components/CTASection";
 import { EditorialDetails } from "@/components/EditorialDetails";
 import { StatementOverview } from "@/components/statement-overview";
@@ -118,6 +119,7 @@ export function ArticleShell({
               { name: editorialRecord.title, href: editorialRecord.href },
             ]}
           />
+          <AdUnit placement="article-end" />
           <CTASection location={`article_bottom_${lesson?.slug ?? no}`} />
         </article>
         <aside className="lg:pt-1">

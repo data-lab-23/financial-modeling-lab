@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Analytics } from "@/components/Analytics";
+import { AdSenseScript } from "@/components/AdSenseScript";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
+import { PageEndAd } from "@/components/PageEndAd";
 
 const siteUrl = "https://data-lab-23.github.io/financial-modeling-lab/";
 const siteName = "Finance Modeling Lab";
@@ -69,11 +71,13 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="ja">
       <body>
         <Analytics />
+        <AdSenseScript />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(organizationJsonLd) }} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(websiteJsonLd) }} />
         <a className="skip-link" href="#main-content">本文へスキップ</a>
         <SiteHeader />
         <main id="main-content">{children}</main>
+        <PageEndAd />
         <SiteFooter />
       </body>
     </html>

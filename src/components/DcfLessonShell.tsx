@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AdUnit } from "@/components/AdUnit";
 import { EditorialDetails } from "@/components/EditorialDetails";
 import { EDITORIAL_AUTHOR, getEditorialRecord, type ArticleHref } from "@/data/editorial";
 import { getRelatedContent } from "@/data/content-catalog";
@@ -139,6 +140,7 @@ export function DcfLessonShell({
               { name: editorialRecord.title, href: editorialRecord.href },
             ]}
           />
+          <AdUnit placement="article-end" />
         </article>
 
         <aside className="lg:pt-1">

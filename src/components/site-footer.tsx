@@ -14,7 +14,7 @@ export function SiteFooter() {
           <Link href="/tools">実務ツール</Link>
           <Link href="/request">リクエスト</Link>
           <Link href="/disclaimer">免責事項</Link>
-          <Link href="/privacy">プライバシー</Link>
+          <Link href="/privacy">広告・プライバシー</Link>
         </div>
         <p className="text-xs text-white/55 md:text-right">
           © 2026 Finance Modeling Lab
