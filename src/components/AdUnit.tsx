@@ -17,11 +17,11 @@ export function AdUnit({
       <span className="ad-label">広告</span>
       <ins
         className="adsbygoogle"
-        style={{ display: "block" }}
+        style={{ display: "block", textAlign: "center" }}
         data-ad-client={client}
         data-ad-slot={slot}
-        data-ad-format="auto"
-        data-full-width-responsive="true"
+        data-ad-layout="in-article"
+        data-ad-format="fluid"
       />
       <AdSenseInitializer />
     </aside>

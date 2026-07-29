@@ -47,8 +47,9 @@ const adMarkup = renderToStaticMarkup(
 assert.match(adMarkup, /data-ad-placement="article-end"/);
 assert.match(adMarkup, /data-ad-client="ca-pub-1234567890123456"/);
 assert.match(adMarkup, /data-ad-slot="1234567890"/);
-assert.match(adMarkup, /data-ad-format="auto"/);
-assert.match(adMarkup, /data-full-width-responsive="true"/);
+assert.match(adMarkup, /data-ad-layout="in-article"/);
+assert.match(adMarkup, /data-ad-format="fluid"/);
+assert.doesNotMatch(adMarkup, /data-full-width-responsive/);
 assert.match(adMarkup, />広告</);
 assert.equal((adMarkup.match(/adsbygoogle/g) ?? []).length, 1);
 
